@@ -4,6 +4,7 @@ import AboutKalika from '@/components/Kalika/AboutKalika.vue'
 import Blog from '@/components/Blog/Blog.vue'
 import NotFound from '@/components/404/NotFound.vue'
 import BlogId from '@/components/BlogId/BlogId.vue'
+import AboutMe from '@/components/AboutMe/AboutMe.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +18,11 @@ const router = createRouter({
       path: '/kalika',
       name: 'kalika',
       component: AboutKalika
+    },
+    {
+      path: '/about-me',
+      name: 'about-me',
+      component: AboutMe
     },
     {
       path: '/blog',
