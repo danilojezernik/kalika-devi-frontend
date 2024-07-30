@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/components/Home/Home.vue'
-import AboutKalika from '@/components/Kalika/AboutKalika.vue'
-import Blog from '@/components/Blog/Blog.vue'
-import NotFound from '@/components/404/NotFound.vue'
-import BlogId from '@/components/BlogId/BlogId.vue'
-import AboutMe from '@/components/AboutMe/AboutMe.vue'
+import Home from '@/core/pages/public/Home/Home.vue'
+import AboutKalika from '@/core/pages/public/Kalika/AboutKalika.vue'
+import Blog from '@/core/pages/public/Blog/Blog.vue'
+import NotFound from '@/core/pages/public/404/NotFound.vue'
+import BlogId from '@/core/pages/public/BlogId/BlogId.vue'
+import AboutMe from '@/core/pages/public/AboutMe/AboutMe.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
