@@ -5,6 +5,7 @@ import Blog from '@/core/pages/public/Blog/Blog.vue'
 import NotFound from '@/core/pages/public/404/NotFound.vue'
 import BlogId from '@/core/pages/public/BlogId/BlogId.vue'
 import AboutMe from '@/core/pages/public/AboutMe/AboutMe.vue'
+import Login from '@/core/pages/public/Login/Login.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/blog/:id',
       name: 'blogId',
       component: BlogId
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
       path: '/:pathMatch(.*)*',
