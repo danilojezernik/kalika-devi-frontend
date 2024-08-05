@@ -1,0 +1,15 @@
+<script setup lang="ts">
+
+</script>
+
+<template>
+  <div>
+    <p>Admin Dashboard</p>
+    <!-- Add your admin content here -->
+    <router-link class="text-orange-700 bg-black" to="/blog-admin">Blog Admin</router-link>
+  </div>
+</template>
+
+<style scoped>
+
+</style>

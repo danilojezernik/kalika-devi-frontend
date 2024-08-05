@@ -1,21 +1,22 @@
 <script setup lang="ts">
 import type { Blog } from '@/models/blog'
 import { onMounted, ref } from 'vue'
-import { fetchBlogPublic } from '@/services/api/blog'
+import { fetchBlogAdmin } from '@/services/api/blog'
 
-const blog = ref<Blog[]>([])
+const blog = ref<Blog[] | null>(null)
 const error = ref('')
 
 onMounted( async () => {
   try {
-    blog.value = await fetchBlogPublic()
+    blog.value = await fetchBlogAdmin()
+    console.log(blog.value)
   } catch (err) {
     console.log(err)
     error.value = 'Something went wrong'
   }
 })
-
 </script>
+
 <template>
   <div>
     <h1>Blog</h1>
@@ -24,3 +25,7 @@ onMounted( async () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+
+</style>
