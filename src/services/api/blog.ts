@@ -17,6 +17,10 @@ import adminApiClient from '@/services/instance/admin/axiosAdmin'
 import publicApiClient from '@/services/instance/public/axiosPublic'
 
 /**
+ * PUBLIC
+ */
+
+/**
  * Function to fetch PUBLIC blog data.
  * This function makes an HTTP GET request to the public API to retrieve blog data that is accessible without authentication.
  *
@@ -25,25 +29,18 @@ import publicApiClient from '@/services/instance/public/axiosPublic'
  */
 export const fetchBlogPublic = async (): Promise<Blog[]> => {
   try {
-    /**
-     * Make a GET request to the public API endpoint for blogs.
-     * The `publicApiClient` is used here, which is configured for non-authenticated requests.
-     */
     const response = await publicApiClient.get<Blog[]>('blog/')
-
     return response.data
-  } catch (error) {
-    /**
-     * Log any errors that occur during the request.
-     */
-    console.log(error)
 
-    /**
-     * Rethrow the error to be handled by the calling code or component.
-     */
+  } catch (error) {
+    console.log(error)
     throw error
   }
 }
+
+/**
+ * ADMIN
+ */
 
 /**
  * Function to fetch blog data for ADMIN user.
@@ -54,25 +51,11 @@ export const fetchBlogPublic = async (): Promise<Blog[]> => {
  */
 export const fetchBlogAdmin = async (): Promise<Blog[]> => {
   try {
-    /**
-     * Make a GET request to the admin API endpoint for blogs.
-     * The `adminApiClient` is used here, which is configured for authenticated requests and includes necessary tokens.
-     */
     const response = await adminApiClient.get<Blog[]>('blog/admin/')
-
-    /**
-     * Return the data from the response.
-     */
     return response.data
-  } catch (error) {
-    /**
-     * Log any errors that occur during the request.
-     */
-    console.log(error)
 
-    /**
-     * Rethrow the error to be handled by the calling code or component.
-     */
+  } catch (error) {
+    console.log(error)
     throw error
   }
 }

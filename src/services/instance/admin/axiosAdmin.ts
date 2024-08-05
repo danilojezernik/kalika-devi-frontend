@@ -18,10 +18,7 @@ const adminApiClient = axios.create({
  */
 adminApiClient.interceptors.request.use(
   config => {
-    /**
-     * Retrieve the token from localStorage.
-     * The token is required for authenticated requests and is stored in localStorage.
-     */
+
     const token = localStorage.getItem('access_token')
 
     /**
@@ -66,10 +63,6 @@ adminApiClient.interceptors.response.use(
      * Check if the error response exists and has a status code of 401.
      */
     if (error.response && error.response.status === 401) {
-      /**
-       * Log the error to the console or take other actions.
-       * A 401 status code indicates that the token might be invalid or expired, and the user needs to log in again.
-       */
       console.error('Unauthorized access - perhaps the token has expired.')
     }
 
