@@ -4,7 +4,7 @@ axios.interceptors.response.use(
   (config: any) => {
     config.headers.Authorization = 'Bearer ' + localStorage.getItem('token')
     config.headers['Content-Type'] = 'application/json; charset=UTF-8'
-    config.baseURL = 'http://localhost:3010/'
+    config.baseURL = '/api/'
     return config
   },
   (error) => {

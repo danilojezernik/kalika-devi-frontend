@@ -3,7 +3,7 @@ import type { Blog } from '@/models/blog'
 
 export const fetchBlog = async () => {
   try {
-    const response = await axios.get<Blog[]>('http://localhost:3010/blog/')
+    const response = await axios.get<Blog[]>('/api/blog/')
     return response.data
   } catch (error) {
     console.log(error)
