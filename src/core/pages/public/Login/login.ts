@@ -2,7 +2,7 @@ import { defineComponent, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { helpers, minLength, required } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
-import axios from 'axios'
+import { login } from '@/services/api/login'
 
 export default defineComponent({
   setup() {
@@ -41,18 +41,22 @@ export default defineComponent({
           state.error = ''
 
           // Send a POST request to the login route
-          const response = await axios.post('/api/login', {
+          const response = await login({
             username: state.username,
             password: state.password
-          }, {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            }
           })
 
-          localStorage.setItem('access_token', response.data.access_token)
+          // Check if the response contains access_token
+          if (response && response.access_token) {
+            // Store the access token
+            localStorage.setItem('access_token', response.access_token)
 
-          router.push('/admin')
+            // Navigate to a protected route (e.g., admin dashboard)
+            router.push('/admin')
+          } else {
+            // Handle the case where access_token is not present
+            state.error = 'Login failed. Please check your credentials.'
+          }
 
         } catch (error: any) {
           console.error(error)
