@@ -12,6 +12,7 @@ import Login from '@/core/pages/public/Login/Login.vue'
 // Components ADMIN
 import Admin from '@/core/pages/private/Admin/Admin.vue'
 import BlogAdmin from '@/core/pages/private/Blog/All/BlogAdmin.vue'
+import Contact from '@/core/pages/public/Contact/Contact.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +58,11 @@ const router = createRouter({
       name: 'blog-admin',
       component: BlogAdmin,
       meta: { requiresAuth: true }
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact
     },
     {
       path: '/:pathMatch(.*)*',
