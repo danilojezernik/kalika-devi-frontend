@@ -3,6 +3,7 @@ import { reactive } from 'vue'
 import type { Blog } from '@/models/blog'
 import { fetchBlogByIdPublic, fetchBlogPublic } from '@/services/api/blog'
 import { useRoute } from 'vue-router'
+import { STORE_ID } from '@/shared/global-const/global.const'
 
 // Define state type
 interface BlogState {
@@ -16,7 +17,7 @@ interface BlogStateId {
   error: string | null
 }
 
-export const useBlogStore = defineStore('blogStore', () => {
+export const useBlogStore = defineStore(STORE_ID.public.blogAll, () => {
 
   const state = reactive<BlogState>({
     blog: [] as Blog[],
@@ -39,7 +40,7 @@ export const useBlogStore = defineStore('blogStore', () => {
   }
 })
 
-export const useBlogById = defineStore('blogById', () => {
+export const useBlogById = defineStore(STORE_ID.public.blogById, () => {
   const route = useRoute()
 
   const state = reactive<BlogStateId>({
@@ -55,7 +56,6 @@ export const useBlogById = defineStore('blogById', () => {
 
       // Fetch the blog data using the provided ID and store it in the state.
       state.blog = await fetchBlogByIdPublic(blogId)
-
     } catch (error) {
       console.error('Failed to fetch blog data:', error)
       state.error = 'Failed to load blog data'

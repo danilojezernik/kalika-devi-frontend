@@ -1,6 +1,7 @@
 import type { Subscriber } from '@/models/newsletterSubscriber'
 
 import publicApiClient from '@/services/instance/public/axiosPublic'
+import { ENDPOINTS } from '@/shared/global-const/global.const'
 
 /**
  * Function to handle user contact.
@@ -12,7 +13,7 @@ import publicApiClient from '@/services/instance/public/axiosPublic'
  */
 export const newsletterSubscription = async (subscriberInfo: Subscriber): Promise<Subscriber> => {
   try {
-    const response = await publicApiClient.post<Subscriber>('/subscribe', subscriberInfo)
+    const response = await publicApiClient.post<Subscriber>(`${ENDPOINTS.subscribe}`, subscriberInfo)
     return response.data
   } catch (error) {
     console.log(error)

@@ -11,7 +11,7 @@ export default defineComponent({
     const loading = computed(() => blogStore.state.isLoading)
 
     return {
-      blogById,
+      blogStoreId: blogById,
       error,
       loading
     }
