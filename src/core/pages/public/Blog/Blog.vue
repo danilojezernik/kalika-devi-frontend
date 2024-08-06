@@ -20,7 +20,9 @@ onMounted( async () => {
   <div>
     <h1>Blog</h1>
     <div v-for="data in blog" :key="data._id">
-      {{ data.title }}
+      <RouterLink :to="'/blog/' + data._id">
+        {{ data.title }}
+      </RouterLink>
     </div>
   </div>
 </template>

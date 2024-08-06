@@ -38,6 +38,16 @@ export const fetchBlogPublic = async (): Promise<Blog[]> => {
   }
 }
 
+export const fetchBlogByIdPublic = async (id: string): Promise<Blog> => {
+  try {
+    const response = await publicApiClient.get<Blog>(`blog/${id}`)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
 /**
  * ADMIN
  */
