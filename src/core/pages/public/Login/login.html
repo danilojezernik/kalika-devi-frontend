@@ -1,0 +1,21 @@
+<div>
+  <h1>Login</h1>
+  <form @click.prevent="handleLogin">
+    <div>
+      <label for="username">Username:</label>
+      <input v-model="state.username" type="text" id="username" required>
+      <p v-if="v$.username.$error">
+        {{ v$.username.$errors[0].$message }}
+      </p>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input v-model="state.password" type="password" id="password" required>
+      <p v-if="v$.password.$error">
+        {{ v$.password.$errors[0].$message }}
+      </p>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <p v-if="state.error">{{ state.error }}</p>
+</div>

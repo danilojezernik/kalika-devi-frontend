@@ -1,7 +1,3 @@
-<script setup lang="ts">
+<template src="./aboutMe.html"></template>
+<script src="./aboutMe.ts"></script>
 
-</script>
-
-<template>
-<h1>About Me</h1>
-</template>

@@ -1,0 +1,8 @@
+<div>
+  <h1>Blog</h1>
+  <div v-for="data in state.blog" :key="data._id">
+    <RouterLink :to="'/blog/' + data._id">
+      {{ data.title }}
+    </RouterLink>
+  </div>
+</div>
