@@ -57,7 +57,8 @@ export default defineComponent({
             // Handle the case where access_token is not present
             state.error = 'Login failed. Please check your credentials.'
           }
-
+          // Reset validation state
+          v$.value.$reset()
         } catch (error: any) {
           console.error(error)
         }

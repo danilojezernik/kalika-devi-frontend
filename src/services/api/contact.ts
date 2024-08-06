@@ -7,7 +7,7 @@ import publicApiClient from '@/services/instance/public/axiosPublic'
  * Sends a POST request with the provided credentials to the contact endpoint.
  *
  * @param {Login} sendContact - The values that are needed for email.
- * @returns {Promise<any>} - A promise that resolves with the server response.
+ * @returns {Promise<Contact>} - A promise that resolves with the server response.
  * @throws {Error} - Throws an error if the request fails.
  */
 export const sendContact = async (sendContact: Contact): Promise<Contact> => {
