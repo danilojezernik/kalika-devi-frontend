@@ -1,27 +1,17 @@
-import { defineComponent, onMounted, reactive } from 'vue'
-import type { Blog } from '@/models/blog'
-import { fetchBlogPublic } from '@/services/api/blog'
+import { computed, defineComponent } from 'vue'
+import { useBlogStore } from '@/stores/blogStore'
 
 export default defineComponent({
   setup() {
 
-    const state = reactive({
-      blog: [] as Blog[],
-      error: ''
-    })
+    const blogStore = useBlogStore()
 
-
-    onMounted( async () => {
-      try {
-        state.blog = await fetchBlogPublic()
-      } catch (err) {
-        console.log(err)
-        state.error = 'Something went wrong'
-      }
-    })
+    const blog = computed(() => blogStore.state.blog)
+    const error = computed(() => blogStore.state.error)
 
     return {
-      state
+      blog,
+      error
     }
 
   }
