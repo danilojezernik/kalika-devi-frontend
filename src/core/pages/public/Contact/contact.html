@@ -1,4 +1,38 @@
+<h1>Login</h1>
 <form @click.prevent="sendMail">
-  <input type="text">
-  <button>Send</button>
+
+  <div>
+    <label for="name">Name:</label>
+    <input v-model="state.name" type="text" id="name" required>
+    <p v-if="v$.name.$error">
+      {{ v$.name.$errors[0].$message }}
+    </p>
+  </div>
+
+  <div>
+    <label for="surname">Surname:</label>
+    <input v-model="state.surname" type="text" id="surname" required>
+    <p v-if="v$.surname.$error">
+      {{ v$.surname.$errors[0].$message }}
+    </p>
+  </div>
+
+  <div>
+    <label for="email">email:</label>
+    <input v-model="state.email" type="email" id="email" required>
+    <p v-if="v$.email.$error">
+      {{ v$.email.$errors[0].$message }}
+    </p>
+  </div>
+
+  <div>
+    <label for="message">message:</label>
+    <input v-model="state.message" type="text" id="message" required>
+    <p v-if="v$.message.$error">
+      {{ v$.message.$errors[0].$message }}
+    </p>
+  </div>
+
+  <button type="submit">Send</button>
 </form>
+<p v-if="state.error">{{ state.error }}</p>
