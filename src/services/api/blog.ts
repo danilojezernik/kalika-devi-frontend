@@ -15,6 +15,7 @@ import type { Blog } from '@/models/blog'
  */
 import adminApiClient from '@/services/instance/admin/axiosAdmin'
 import publicApiClient from '@/services/instance/public/axiosPublic'
+import { ENDPOINTS } from '@/shared/global-const/global.const'
 
 /**
  * PUBLIC
@@ -29,7 +30,7 @@ import publicApiClient from '@/services/instance/public/axiosPublic'
  */
 export const fetchBlogPublic = async (): Promise<Blog[]> => {
   try {
-    const response = await publicApiClient.get<Blog[]>('blog/')
+    const response = await publicApiClient.get<Blog[]>(`${ENDPOINTS.blog}`)
     return response.data
 
   } catch (error) {
@@ -40,7 +41,7 @@ export const fetchBlogPublic = async (): Promise<Blog[]> => {
 
 export const fetchBlogByIdPublic = async (id: string): Promise<Blog> => {
   try {
-    const response = await publicApiClient.get<Blog>(`blog/${id}`)
+    const response = await publicApiClient.get<Blog>(`${ENDPOINTS.blog}${id}`)
     return response.data
   } catch (error) {
     console.error(error)
@@ -61,7 +62,7 @@ export const fetchBlogByIdPublic = async (id: string): Promise<Blog> => {
  */
 export const fetchBlogAdmin = async (): Promise<Blog[]> => {
   try {
-    const response = await adminApiClient.get<Blog[]>('blog/admin/')
+    const response = await adminApiClient.get<Blog[]>(`${ENDPOINTS.blogAdmin}`)
     return response.data
 
   } catch (error) {

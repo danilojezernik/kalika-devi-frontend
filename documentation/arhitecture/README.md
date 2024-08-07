@@ -115,9 +115,7 @@ features and responsibilities, making it easier to manage and understand.
 - **`index.html`**: Main HTML file for the application.
 - **`package.json`**: Lists project dependencies, scripts, and metadata.
 - **`package-lock.json`**: Locks the versions of npm dependencies.
-- **`postcss.config.js`**: PostCSS configuration file for CSS processing.
 - **`README.md`**: Project documentation and information.
-- **`tailwind.config.js`**: Configuration file for Tailwind CSS.
 - **`tsconfig.app.json`**: TypeScript configuration for the application code.
 - **`tsconfig.json`**: General TypeScript configuration file.
 - **`tsconfig.node.json`**: TypeScript configuration for Node.js code.

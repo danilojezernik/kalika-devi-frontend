@@ -2,18 +2,18 @@
   <h1>Blog Post</h1>
 
   <!-- Display a loading message while the data is being fetched -->
-  <div v-if="state.isLoading">
+  <div v-if="loading">
     <p>Loading blog data...</p>
   </div>
 
   <!-- Display an error message if there was an error fetching the data -->
-  <div v-else-if="state.error">
-    <p>{{ state.error }}</p>
+  <div v-else-if="error">
+    <p>{{ error }}</p>
   </div>
 
   <!-- Display the blog data once it has been successfully fetched -->
-  <div v-else-if="state.blog">
-    <h2>{{ state.blog.title }}</h2>
-    <p>{{ state.blog.vsebina }}</p>
+  <div v-else-if="blogStoreId">
+    <h2>{{ blogStoreId.title }}</h2>
+    <p>{{ blogStoreId.vsebina }}</p>
   </div>
 </div>

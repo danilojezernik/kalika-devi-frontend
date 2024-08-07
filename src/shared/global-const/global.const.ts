@@ -7,3 +7,20 @@ export const HEADER = [
   {class: 'p-3', to: '/contact', title: 'Contact' },
   {class: 'p-3', to: '/login', title: 'Login' },
 ]
+
+// Endpoints for axios
+export enum ENDPOINTS {
+  blog = 'blog/',
+  blogAdmin = 'blog/admin/',
+  contact = '/contact',
+  login = 'login',
+  subscribe = '/subscribe',
+}
+
+// Enums for Pinia store ID
+export enum STORE_ID {
+  public = {
+    blogAll: 'blogStore',
+    blogById: 'blogStoreById'
+  }
+}

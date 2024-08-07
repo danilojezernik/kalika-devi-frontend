@@ -1,6 +1,7 @@
 import type { Contact } from '@/models/contact'
 
 import publicApiClient from '@/services/instance/public/axiosPublic'
+import { ENDPOINTS } from '@/shared/global-const/global.const'
 
 /**
  * Function to handle user contact.
@@ -12,7 +13,7 @@ import publicApiClient from '@/services/instance/public/axiosPublic'
  */
 export const sendContact = async (sendContact: Contact): Promise<Contact> => {
   try {
-    const response = await publicApiClient.post<Contact>('/contact', sendContact)
+    const response = await publicApiClient.post<Contact>(`${ENDPOINTS.contact}`, sendContact)
     return response.data
   } catch (error) {
     console.log(error)
