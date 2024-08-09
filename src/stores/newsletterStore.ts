@@ -1,45 +1,44 @@
 import { defineStore } from 'pinia'
 import { STORE_ID } from '@/shared/global-const/global.const'
 import { reactive } from 'vue'
+import { newsletterSubscription } from '@/services/api/newsletterSubscribe'
 import { useVuelidate } from '@vuelidate/core'
-import { sendContact } from '@/services/api/contact'
-import { CONTACT_RULES } from '@/shared/global-const/rules'
+import { NEWSLETTER_RULES } from '@/shared/global-const/rules'
 
-export const useContactStore = defineStore(STORE_ID.public.contact, () => {
+export const useNewsletterStore = defineStore(STORE_ID.public.newsletter, () => {
 
   const state = reactive({
     name: '',
     surname: '',
     email: '',
-    message: '',
+    confirmed: false,
     datum_vnosa: new Date().toISOString(),
     error: ''
   })
+  const v$ = useVuelidate(NEWSLETTER_RULES, state)
 
-  const v$ = useVuelidate(CONTACT_RULES, state)
-
-  const sendMail = async () => {
+  const sendNewsletter = async () => {
     v$.value.$touch()
 
     if (!v$.value.$invalid) {
       try {
 
-        // Reset the error message
         state.error = ''
 
-        await sendContact({
+        await newsletterSubscription({
           name: state.name,
           surname: state.surname,
           email: state.email,
-          message: state.message,
+          confirmed: state.confirmed,
           datum_vnosa: state.datum_vnosa
         })
+
 
         // Clear form fields
         state.name = ''
         state.surname = ''
         state.email = ''
-        state.message = ''
+
 
         // Reset validation state
         v$.value.$reset()
@@ -48,13 +47,14 @@ export const useContactStore = defineStore(STORE_ID.public.contact, () => {
         console.error(error)
         state.error = 'An error occurred while sending your message. Please try again.'
       }
+
     }
   }
 
   return {
     state,
     v$,
-    sendMail
+    sendNewsletter
   }
 
 })

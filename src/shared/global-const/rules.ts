@@ -22,3 +22,19 @@ export const CONTACT_RULES = {
     required: helpers.withMessage('Message is required!', required)
   }
 }
+
+/**
+ * RULES for Vuelidate in NEWSLETTER component
+ * @interface: name, surname, email
+ * */
+export const NEWSLETTER_RULES = {
+  name: {
+    required: helpers.withMessage('Name is required!', required)
+  },
+  surname: {
+    required: helpers.withMessage('Surname is required!', required)
+  },
+  email: {
+    required: helpers.withMessage('Email is required!', email)
+  }
+}

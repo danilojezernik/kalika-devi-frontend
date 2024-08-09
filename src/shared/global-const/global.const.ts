@@ -14,7 +14,7 @@ export enum ENDPOINTS {
   blogAdmin = 'blog/admin/',
   contact = '/contact',
   login = 'login',
-  subscribe = '/subscribe',
+  subscribe = '/subscriber/subscribe',
 }
 
 // Enums for Pinia store ID
@@ -22,7 +22,8 @@ export enum STORE_ID {
   public = {
     blogAll: 'blogStore',
     blogById: 'blogStoreById',
-    contact: 'contactStore'
+    contact: 'contactStore',
+    newsletter: 'newsletterStore'
   },
   private = {
     blogAll: 'blogAdminStore',

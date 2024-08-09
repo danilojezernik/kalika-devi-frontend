@@ -1,38 +1,41 @@
-<h1>Login</h1>
-<form @click.prevent="sendMail">
+<h1>Contact Us</h1>
+
+<form @submit.prevent="sendMail">
 
   <div>
     <label for="name">Name:</label>
-    <input v-model="state.name" type="text" id="name" required>
-    <p v-if="v$.name.$error">
+    <input v-model="state.name" type="text" id="name" @blur="v$.name.$touch()" required>
+    <p v-if="v$.name.$error && v$.name.$dirty">
       {{ v$.name.$errors[0].$message }}
     </p>
   </div>
 
   <div>
     <label for="surname">Surname:</label>
-    <input v-model="state.surname" type="text" id="surname" required>
-    <p v-if="v$.surname.$error">
+    <input v-model="state.surname" type="text" id="surname" @blur="v$.surname.$touch()" required>
+    <p v-if="v$.surname.$error && v$.surname.$dirty">
       {{ v$.surname.$errors[0].$message }}
     </p>
   </div>
 
   <div>
-    <label for="email">email:</label>
-    <input v-model="state.email" type="email" id="email" required>
-    <p v-if="v$.email.$error">
+    <label for="email">Email:</label>
+    <input v-model="state.email" type="email" id="email" @blur="v$.email.$touch()" required>
+    <p v-if="v$.email.$error && v$.email.$dirty">
       {{ v$.email.$errors[0].$message }}
     </p>
   </div>
 
   <div>
-    <label for="message">message:</label>
-    <input v-model="state.message" type="text" id="message" required>
-    <p v-if="v$.message.$error">
+    <label for="message">Message:</label>
+    <input v-model="state.message" type="text" id="message" @blur="v$.message.$touch()" required>
+    <p v-if="v$.message.$error && v$.message.$dirty">
       {{ v$.message.$errors[0].$message }}
     </p>
   </div>
 
   <button type="submit">Send</button>
+
 </form>
+
 <p v-if="state.error">{{ state.error }}</p>

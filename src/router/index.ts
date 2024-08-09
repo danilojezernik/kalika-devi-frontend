@@ -13,6 +13,7 @@ import Admin from '@/core/pages/private/Admin/Admin.vue'
 import BlogAdmin from '@/core/pages/private/Blog/All/BlogAdmin.vue'
 import Contact from '@/core/pages/public/Contact/Contact.vue'
 import BlogId from '@/core/pages/public/BlogId/BlogId.vue'
+import Success from '@/core/pages/public/Success/Success.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -63,6 +64,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: Contact
+    },
+    {
+      path: '/success',
+      name: 'success',
+      component: Success
     },
     {
       path: '/:pathMatch(.*)*',
