@@ -1,5 +1,5 @@
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
+describe('login testing', () => {
+  it('should login the user', () => {
+    cy.visit('/login')
   })
 })
