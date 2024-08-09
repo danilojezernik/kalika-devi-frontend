@@ -9,11 +9,13 @@ import App from './App.vue'
 import router from './router'
 import Header from '@/core/Header/Header.vue'
 import Hero from '@/shared/componenets/Hero/Hero.vue'
+import Footer from '@/core/Footer/Footer.vue'
 
 const app = createApp(App)
 
 // Global components
 app.component('Header', Header)
+app.component('Footer', Footer)
 
 app.component('Hero', Hero)
 

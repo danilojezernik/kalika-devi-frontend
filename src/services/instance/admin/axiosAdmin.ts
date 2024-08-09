@@ -7,7 +7,7 @@ import axios from 'axios'
 const adminApiClient = axios.create({
   baseURL: '/api/', // Base URL for the API. All requests made using this instance will start with this URL.
   headers: {
-    'Content-Type': 'application/json' // Default header indicating that request bodies will be in JSON format.
+    'Content-Type': 'application/x-www-form-urlencoded'
   }
 })
 

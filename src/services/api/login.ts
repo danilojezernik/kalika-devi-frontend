@@ -1,7 +1,7 @@
 import type { Login } from '@/models/login'
 
-import publicApiClient from '@/services/instance/public/axiosPublic'
 import { ENDPOINTS } from '@/shared/global-const/global.const'
+import adminApiClient from '@/services/instance/admin/axiosAdmin'
 
 /**
  * Function to handle user login.
@@ -13,11 +13,7 @@ import { ENDPOINTS } from '@/shared/global-const/global.const'
  */
 export const login = async (newData: Login): Promise<Login> => {
   try {
-    const response = await publicApiClient.post<Login>(`${ENDPOINTS.login}`, newData, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
+    const response = await adminApiClient.post<Login>(`${ENDPOINTS.login}`, newData)
     return response.data
   } catch (error) {
     console.log(error)
